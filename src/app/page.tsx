@@ -1,9 +1,19 @@
-const Page = () => {
-  return (
-    <div>
+"use client"
 
-    </div>
-  );
+import Appbar from "@/components/Appbar";
+
+const Page = () => {
+
+
+  return (
+      <>
+        <Appbar/>
+          <div className="bg-black w-screen h-screen">
+
+          </div>
+      </>
+  )
+
 }
 
 export default Page;
