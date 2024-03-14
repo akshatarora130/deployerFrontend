@@ -10,7 +10,9 @@ const Appbar = () => {
     }
 
     const handleSignout = () => {
-        signOut();
+        signOut().then(() => {
+            console.log("Logged Out");
+        });
     }
 
     if (!session) {
@@ -25,7 +27,8 @@ const Appbar = () => {
     }
 
     return (
-        <div className="bg-black text-white p-4 border-b border-gray-700">
+        <div className="flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
+            <div className="text-2xl font-semibold">Deployer</div>
             <button className="px-4 py-2 rounded-md bg-red-600 hover:bg-red-700 text-white" onClick={handleSignout}>Signout</button>
             {/* todo button to show all the deployments of the user */}
         </div>

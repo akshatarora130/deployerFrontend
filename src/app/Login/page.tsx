@@ -1,14 +1,26 @@
 "use client"
 
-import { signIn } from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
+import {Prisma} from "@/app/api/auth/[...nextauth]/route";
+
 
 const Login = () => {
+    const {data: session} = useSession();
+
     const handleGoogle = () => {
-        signIn("google");
+        signIn("google", {
+            callbackUrl: "/"
+        }).then(() => {
+            console.log(session?.user);
+        });
     }
 
     const handleGithub = () => {
-        signIn("github");
+        signIn("github", {
+            callbackUrl: "/"
+        }).then(() => {
+            console.log(session?.user);
+        });
     }
 
     return (
