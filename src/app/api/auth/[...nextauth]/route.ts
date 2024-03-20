@@ -32,7 +32,6 @@ export const authOptions = {
 
     callbacks: {
         async session({ session, user } : SessionProps) {
-            console.log(user);
             session.user.id = user.id;
             return session;
         },
