@@ -47,7 +47,7 @@ const NewDeployment = () => {
     return (
         <>
             <Appbar />
-            <div className="bg-black w-screen h-screen flex flex-col items-center justify-center">
+            <div className="bg-black w-screen min-h-[91.25vh] flex flex-col items-center justify-center">
                 <h1 className="text-white text-4xl mb-12 font-extrabold tracking-wide">New Deployment</h1>
                 <div className="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto md:h-80 border-2 border-white rounded-2xl text-white bg-gray-900 p-6">
                     <div className="font-extrabold text-lg md:text-xl ">Deploy Your GitHub repository</div>

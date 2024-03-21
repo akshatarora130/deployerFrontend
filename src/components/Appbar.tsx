@@ -23,7 +23,7 @@ const Appbar = () => {
 
     if (!session) {
         return (
-            <div className="appbar fixed top-0 left-0 right-0 z-10 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
+            <div className="appbar relative top-0 left-0 right-0 z-10 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
                 <button onClick={() => {
                     router.push("/")
                 }}>
@@ -37,7 +37,7 @@ const Appbar = () => {
     }
 
     return (
-        <div className="appbar fixed top-0 left-0 right-0 z-0 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
+        <div className="appbar relative top-0 left-0 right-0 z-0 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
             <button onClick={() => {
                 router.push("/")
             }}>

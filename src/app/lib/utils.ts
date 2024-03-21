@@ -35,3 +35,18 @@ export const addProject = async (id: string, githubLink: string, deploymentLink:
         console.error("Error adding project:", error);
     }
 };
+
+export const allProjects = async (userId: string) => {
+    try{
+        const response = await prisma.project.findMany({
+            where: {
+                userId: userId
+            }
+        })
+
+        return response;
+    }
+    catch (error) {
+        console.error("Error while fetching projects:", error);
+    }
+}

@@ -19,7 +19,7 @@ const Page = () => {
     return (
         <>
             <Appbar />
-            <div className="bg-black min-h-screen flex flex-col justify-center items-center text-center">
+            <div className="bg-black min-h-[91.25vh] flex flex-col justify-center items-center text-center">
                 <h1 className="text-white text-4xl mb-8 font-extrabold tracking-wide">Welcome to Our Frontend Deployment Service</h1>
                 <img
                     src="https://i.ibb.co/t49YTYb/main.png"
