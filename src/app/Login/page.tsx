@@ -11,7 +11,7 @@ const Login = () => {
         signIn("google", {
             callbackUrl: "/"
         }).then(() => {
-            console.log(session?.user);
+
         });
     }
 
@@ -19,7 +19,7 @@ const Login = () => {
         signIn("github", {
             callbackUrl: "/"
         }).then(() => {
-            console.log(session?.user);
+
         });
     }
 

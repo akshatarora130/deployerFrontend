@@ -2,10 +2,10 @@ import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import {PrismaAdapter} from '@next-auth/prisma-adapter';
-import { PrismaClient } from '@prisma/client';
 
-export const Prisma = new PrismaClient();
+
 import dotenv from "dotenv"
+import {prisma} from "@/app/lib/utils";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ type SessionProps = {
 };
 
 export const authOptions = {
-    adapter: PrismaAdapter(Prisma),
+    adapter: PrismaAdapter(prisma),
 
     providers: [
         GithubProvider({

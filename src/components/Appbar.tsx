@@ -10,27 +10,43 @@ const Appbar = () => {
     }
 
     const handleSignout = () => {
-        signOut().then(() => {
+        signOut({
+            callbackUrl: "/"
+        }).then(() => {
             console.log("Logged Out");
         });
     }
 
+    const handleAllDep = () => {
+        router.push("/AllDeployments")
+    }
+
     if (!session) {
         return (
-            <div className="flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
-                <div className="text-2xl font-semibold">Deployer</div>
+            <div className="appbar fixed top-0 left-0 right-0 z-10 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
+                <button onClick={() => {
+                    router.push("/")
+                }}>
+                    <div className="text-4xl font-bold">DEPLOYER</div>
+                </button>
                 <div>
-                    <button className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white" onClick={handleLogin}>Login/Signup</button>
+                    <button className="px-4 py-2 text-xs rounded-md bg-white hover:bg-gray-300 text-black font-bold" onClick={handleLogin}>Login/Signup</button>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
-            <div className="text-2xl font-semibold">Deployer</div>
-            <button className="px-4 py-2 rounded-md bg-red-600 hover:bg-red-700 text-white" onClick={handleSignout}>Signout</button>
-            {/* todo button to show all the deployments of the user */}
+        <div className="appbar fixed top-0 left-0 right-0 z-0 flex justify-between items-center bg-black text-white p-4 border-b border-gray-700">
+            <button onClick={() => {
+                router.push("/")
+            }}>
+                <div className="text-4xl font-bold">DEPLOYER</div>
+            </button>
+            <div className="flex gap-4">
+                <button className="px-4 py-2 text-xs rounded-md bg-white hover:bg-gray-300 text-black font-bold" onClick={handleAllDep}>All Deployments</button>
+                <button className="px-4 py-2 text-xs rounded-md bg-red-600 hover:bg-red-700 text-white font-bold" onClick={handleSignout}>Signout</button>
+            </div>
         </div>
     );
 }
