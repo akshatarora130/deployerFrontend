@@ -13,8 +13,7 @@ const NewDeployment = () => {
     const [githubLink, setGithubLink] = useState("");
     const [id, setId] = useState("");
     const [uploading, setUploading] = useState(false);
-    const [deployed, setDeployed] = useState(true);
-    const [deployementLink, setDeploymentLink] = useState("");
+    const [deployed, setDeployed] = useState(false);
 
     const handleUpload = async () => {
         setUploading(true);
@@ -28,13 +27,12 @@ const NewDeployment = () => {
             const response = await axios.get(`${process.env.NEXT_PUBLIC_UPLOAD_URL}status/?id=${res.data.id}`)
             if(response.data.status === "deployed"){
                 console.log("Deployed")
-                setDeploymentLink(`http://${id}.deployer.akshatarora130.com:4001/index.html`)
                 clearInterval(interval);
                 // Upload to database
                 const projectAdded = await axios.post("/api/addProject", {
-                    id: id,
+                    id: res.data.id,
                     githubLink: githubLink,
-                    deploymentLink: deployementLink,
+                    deploymentLink: `http://${res.data.id}.deployer.akshatarora130.com:4001/index.html`,
                     userId: session?.user.id
                 })
                 setDeployed(true);
