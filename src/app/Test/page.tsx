@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import React from "react";
-import { AuroraBackground } from "../components/ui/aurora-background";
+import { AuroraBackground } from "../../components/ui/aurora-background";
 import Appbar from "@/components/Appbar";
 
 const Page = () => {
