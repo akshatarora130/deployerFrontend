@@ -1,8 +1,6 @@
 "use client"
 
 import {signIn, useSession} from "next-auth/react";
-import {Prisma} from "@/app/api/auth/[...nextauth]/route";
-
 
 const Login = () => {
     const {data: session} = useSession();
